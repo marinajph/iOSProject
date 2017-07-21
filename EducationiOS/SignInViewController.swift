@@ -19,7 +19,7 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate
     @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.flatGreenColorDark()
+        view.backgroundColor = UIColor.flatSkyBlueColorDark()
         // Do any additional setup after loading the view.
         let loginButton = FBSDKLoginButton()
         loginButton.delegate = self

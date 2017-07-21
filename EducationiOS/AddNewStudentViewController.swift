@@ -12,6 +12,7 @@ import FirebaseDatabase
 
 class AddNewStudentViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
    var refStudent: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,15 +44,18 @@ class AddNewStudentViewController: UIViewController {
         //creating artist with the given values
         let student = ["id":key,
                       "sid":"1",
-                      "firstName": "Jigisha",
-                      "lastName": "Patel"
+                      "ProductName": "watch",
+                      "desc": "titan",
+                      "price": "$122",
+                      "qty": "2"
+                      
         ]
         
         //adding the artist inside the generated unique key
         refStudent.child(key).setValue(student)
         
         //displaying message
-        print("Student Added")
+        print("Product Added")
     }
     
     func getStudentRecords()
@@ -67,10 +71,12 @@ class AddNewStudentViewController: UIViewController {
                     //getting values
                     let studentObject = student.value as? [String: AnyObject]
                     let id  = studentObject?["id"]
-                    let studentId  = studentObject?["sid"]
-                    let studentFName  = studentObject?["firstName"]
-                    let studentLName = studentObject?["lastName"]
-                    print("\(id) -- \(studentId) -- \(studentFName) -- \(studentLName)")
+                    let productId  = studentObject?["sid"]
+                    let productName  = studentObject?["ProductName"]
+                    let productDesc = studentObject?["desc"]
+                    let price = studentObject?["price"]
+                    let qty = studentObject?["qty"]
+                    print("\(id) -- \(productId) -- \(productName) -- \(productDesc) -- \(price) -- \(qty)")
                 }
             
             }
@@ -84,22 +90,24 @@ class AddNewStudentViewController: UIViewController {
         //creating artist with the given values
         let student = ["id":key,
                         "sid":"1",
-                       "firstName": "Pritesh",
-                       "lastName": "Patel"
+                       "ProductName": "laptop",
+                       "desc": "hp",
+                       "price": "$122",
+                       "qty": "2"
         ]
         
         //adding the artist inside the generated unique key
         refStudent.child(key).setValue(student)
         
         //displaying message
-        print("Student Updated")
+        print("Product Updated")
     }
     
     func deleteStudent(id:String){
         refStudent.child(id).setValue(nil)
         
         //displaying message
-        print("Student Deleted")
+        print("Product Deleted")
     }
 
     @IBAction func btnLogout(_ sender: UIBarButtonItem) {
