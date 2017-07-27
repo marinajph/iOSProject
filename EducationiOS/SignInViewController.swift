@@ -19,7 +19,7 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate
     @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.flatSkyBlueColorDark()
+        
         // Do any additional setup after loading the view.
         let loginButton = FBSDKLoginButton()
         loginButton.delegate = self
@@ -35,11 +35,12 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate
         }
         let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         Auth.auth().signIn(with: credential) { (user, error) in
-            if error != nil {
+            if let error = error {
                 // ...
                 return
             }
         }
+         self.performSegue(withIdentifier: "homeSrc", sender: self)
         
     }
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -80,8 +81,10 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate
                     print("You have successfully logged in")
                     
                     //Go to the Next View Controller if the login is sucessful
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewStudent")
-                    self.present(vc!, animated: true, completion: nil)
+                    /*let vc = self.storyboard?.instantiateViewController(withIdentifier: "homeSrc")
+                    self.present(vc!, animated: true, completion: nil)*/
+                    
+                    self.performSegue(withIdentifier: "homeSrc", sender: self)
                     
                 } else {
                     

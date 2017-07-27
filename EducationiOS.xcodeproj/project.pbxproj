@@ -10,22 +10,22 @@
 		28441BC41F152CB400080DDC /* AddNewStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28441BC31F152CB400080DDC /* AddNewStudentViewController.swift */; };
 		28441BC61F153E5300080DDC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28441BC51F153E5300080DDC /* SignInViewController.swift */; };
 		28B31D621F166B17000B4CC8 /* EurekaFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B31D611F166B17000B4CC8 /* EurekaFormViewController.swift */; };
-		28B31D641F169C27000B4CC8 /* BarcodeScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B31D631F169C27000B4CC8 /* BarcodeScanViewController.swift */; };
 		28FCF13E1F15210700305F2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FCF13D1F15210700305F2E /* AppDelegate.swift */; };
 		28FCF1401F15210700305F2E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FCF13F1F15210700305F2E /* SignUpViewController.swift */; };
 		28FCF1431F15210700305F2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28FCF1411F15210700305F2E /* Main.storyboard */; };
 		28FCF1451F15210700305F2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FCF1441F15210700305F2E /* Assets.xcassets */; };
 		28FCF1481F15210700305F2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28FCF1461F15210700305F2E /* LaunchScreen.storyboard */; };
 		3EB63B72EB3F49BEC39CF422 /* Pods_EducationiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75FEBC4FF9E04D0FB5AC417A /* Pods_EducationiOS.framework */; };
-		9BD01E971F2155F2006A1DA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BD01E961F2155F2006A1DA6 /* GoogleService-Info.plist */; };
-		9BD01E9B1F217D1E006A1DA6 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD01E9A1F217D1E006A1DA6 /* ListViewController.swift */; };
+		8DFB8A2F1F28F57C00973F45 /* AddProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFB8A2E1F28F57C00973F45 /* AddProducts.swift */; };
+		8DFB8A331F28FE3F00973F45 /* students.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFB8A321F28FE3F00973F45 /* students.swift */; };
+		8DFB8A371F29119D00973F45 /* AddToCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFB8A361F29119D00973F45 /* AddToCart.swift */; };
+		9B2053231F29625B0011EDD6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B2053221F29625B0011EDD6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		28441BC31F152CB400080DDC /* AddNewStudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewStudentViewController.swift; sourceTree = "<group>"; };
 		28441BC51F153E5300080DDC /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		28B31D611F166B17000B4CC8 /* EurekaFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EurekaFormViewController.swift; sourceTree = "<group>"; };
-		28B31D631F169C27000B4CC8 /* BarcodeScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeScanViewController.swift; sourceTree = "<group>"; };
 		28FCF13A1F15210700305F2E /* EducationiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EducationiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28FCF13D1F15210700305F2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28FCF13F1F15210700305F2E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -35,8 +35,10 @@
 		28FCF1491F15210700305F2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		697E14FC00646280593CF73F /* Pods-EducationiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EducationiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EducationiOS/Pods-EducationiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		75FEBC4FF9E04D0FB5AC417A /* Pods_EducationiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EducationiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BD01E961F2155F2006A1DA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		9BD01E9A1F217D1E006A1DA6 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		8DFB8A2E1F28F57C00973F45 /* AddProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProducts.swift; sourceTree = "<group>"; };
+		8DFB8A321F28FE3F00973F45 /* students.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = students.swift; sourceTree = "<group>"; };
+		8DFB8A361F29119D00973F45 /* AddToCart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCart.swift; sourceTree = "<group>"; };
+		9B2053221F29625B0011EDD6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AEB780B2C9BFCF5D42A70ED4 /* Pods-EducationiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EducationiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-EducationiOS/Pods-EducationiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,14 +83,15 @@
 		28FCF13C1F15210700305F2E /* EducationiOS */ = {
 			isa = PBXGroup;
 			children = (
-				9BD01E961F2155F2006A1DA6 /* GoogleService-Info.plist */,
+				9B2053221F29625B0011EDD6 /* GoogleService-Info.plist */,
 				28FCF13D1F15210700305F2E /* AppDelegate.swift */,
+				8DFB8A321F28FE3F00973F45 /* students.swift */,
 				28FCF13F1F15210700305F2E /* SignUpViewController.swift */,
-				9BD01E9A1F217D1E006A1DA6 /* ListViewController.swift */,
 				28441BC51F153E5300080DDC /* SignInViewController.swift */,
-				28B31D631F169C27000B4CC8 /* BarcodeScanViewController.swift */,
 				28441BC31F152CB400080DDC /* AddNewStudentViewController.swift */,
+				8DFB8A2E1F28F57C00973F45 /* AddProducts.swift */,
 				28FCF1411F15210700305F2E /* Main.storyboard */,
+				8DFB8A361F29119D00973F45 /* AddToCart.swift */,
 				28FCF1441F15210700305F2E /* Assets.xcassets */,
 				28FCF1461F15210700305F2E /* LaunchScreen.storyboard */,
 				28FCF1491F15210700305F2E /* Info.plist */,
@@ -169,7 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28FCF1481F15210700305F2E /* LaunchScreen.storyboard in Resources */,
-				9BD01E971F2155F2006A1DA6 /* GoogleService-Info.plist in Resources */,
+				9B2053231F29625B0011EDD6 /* GoogleService-Info.plist in Resources */,
 				28FCF1451F15210700305F2E /* Assets.xcassets in Resources */,
 				28FCF1431F15210700305F2E /* Main.storyboard in Resources */,
 			);
@@ -230,13 +233,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28B31D641F169C27000B4CC8 /* BarcodeScanViewController.swift in Sources */,
+				8DFB8A371F29119D00973F45 /* AddToCart.swift in Sources */,
 				28B31D621F166B17000B4CC8 /* EurekaFormViewController.swift in Sources */,
 				28441BC61F153E5300080DDC /* SignInViewController.swift in Sources */,
 				28FCF1401F15210700305F2E /* SignUpViewController.swift in Sources */,
+				8DFB8A2F1F28F57C00973F45 /* AddProducts.swift in Sources */,
+				8DFB8A331F28FE3F00973F45 /* students.swift in Sources */,
 				28FCF13E1F15210700305F2E /* AppDelegate.swift in Sources */,
 				28441BC41F152CB400080DDC /* AddNewStudentViewController.swift in Sources */,
-				9BD01E9B1F217D1E006A1DA6 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

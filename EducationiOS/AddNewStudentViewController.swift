@@ -10,20 +10,34 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class AddNewStudentViewController: UIViewController {
+class AddNewStudentViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
 
-    @IBOutlet weak var tableView: UITableView!
-   var refStudent: DatabaseReference!
+    struct eventStruct {
+        let name: String!
+        let price: String!
+        let description: String!
+        let quantity: String!
+    }
+
+     var nameToPass:String!
+    var priceToPass:String!
+    var descriptionToPass:String!
+    var quantityToPass:String!
+    
+    var lists: [students] = []
+    @IBOutlet weak var myTableView: UITableView!
+  // var refStudent: DatabaseReference!
+    var refStudent = Database.database().reference().child("students");
+    var ref:DatabaseReference!
+    var posts = [eventStruct]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //FirebaseApp.configure()
-        //getting a reference to the node artists
-        refStudent = Database.database().reference().child("students");
-
-        // Do any additional setup after loading the view.
-        //updateStudent()
-        //deleteStudent(id: "-KomaHnqStBFhCgAE9i1")
-        getStudentRecords()
+        loadNews()
+        //var objStudent = students()
+       // lists = objStudent.retrieveProducts()
+       
+       
         
     }
 
@@ -32,84 +46,93 @@ class AddNewStudentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func btnInsert(_ sender: UIButton) {
-        addStudent()
+    
+    @IBAction func btnInsert(_ sender: Any) {
+                 self.performSegue(withIdentifier: "addSrc", sender: self)
     }
     
-    func addStudent(){
-        //generating a new key inside artists node
-        //and also getting the generated key
-        let key = refStudent.childByAutoId().key
-        
-        //creating artist with the given values
-        let student = ["id":key,
-                      "sid":"1",
-                      "ProductName": "watch",
-                      "desc": "titan",
-                      "price": "$122",
-                      "qty": "2"
-                      
-        ]
-        
-        //adding the artist inside the generated unique key
-        refStudent.child(key).setValue(student)
-        
-        //displaying message
-        print("Product Added")
+    
+   
+    override func viewWillAppear(_ animated: Bool) {
+        //retrieveProducts()
+        myTableView.reloadData()
     }
     
-    func getStudentRecords()
-    {
-        //observing the data changes
-        refStudent.observe(DataEventType.value, with: { (snapshot) in
+    
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       // return lists.count
+        return posts.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+       cell.textLabel?.text = posts[indexPath.row].name
+        //passPrice = posts[indexPath.row].price
+        
+        
+        return cell
+    }
+    
+    
+    func loadNews() {
+        ref = Database.database().reference()
+        ref.child("students").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
             
-            //if the reference have some values
-            if snapshot.childrenCount > 0 {
-                
-                //iterating through all the values
-                for student in snapshot.children.allObjects as! [DataSnapshot] {
-                    //getting values
-                    let studentObject = student.value as? [String: AnyObject]
-                    let id  = studentObject?["id"]
-                    let productId  = studentObject?["sid"]
-                    let productName  = studentObject?["ProductName"]
-                    let productDesc = studentObject?["desc"]
-                    let price = studentObject?["price"]
-                    let qty = studentObject?["qty"]
-                    print("\(id) -- \(productId) -- \(productName) -- \(productDesc) -- \(price) -- \(qty)")
-                }
-            
+            if let valueDictionary = snapshot.value as? [AnyHashable:String]
+            {
+                let name = valueDictionary["name"]
+                let price = valueDictionary["price"]
+                let description = valueDictionary["description"]
+                let quantity = valueDictionary["quantity"]
+                self.posts.insert(eventStruct(name: name, price: price, description: description, quantity: quantity), at: 0)
+                //Reload your tableView
+                self.myTableView.reloadData()
             }
         })
+        
     }
     
-    func updateStudent(){
-        //generating a new key inside artists node
-        //and also getting the generated key
-        let key = "-KomaHnqStBFhCgAE9i1"
-        //creating artist with the given values
-        let student = ["id":key,
-                        "sid":"1",
-                       "ProductName": "laptop",
-                       "desc": "hp",
-                       "price": "$122",
-                       "qty": "2"
-        ]
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
         
-        //adding the artist inside the generated unique key
-        refStudent.child(key).setValue(student)
+        let indexPath = myTableView.indexPathForSelectedRow!
+        let myCell = myTableView.cellForRow(at: indexPath)! as UITableViewCell
         
-        //displaying message
-        print("Product Updated")
+        nameToPass = myCell.textLabel?.text
+        priceToPass = posts[indexPath.row].price
+        descriptionToPass = posts[indexPath.row].description
+        quantityToPass = posts[indexPath.row].quantity
+
+       
+        
+        performSegue(withIdentifier: "detailSrc", sender:nameToPass)
+    
     }
     
-    func deleteStudent(id:String){
-        refStudent.child(id).setValue(nil)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        //displaying message
-        print("Product Deleted")
+        if segue.identifier == "detailSrc" {
+            
+            let controller = segue.destination as? AddToCart
+            
+           controller?.passedValue = nameToPass
+           controller?.pricePassed = priceToPass
+            controller?.desPassed = descriptionToPass
+            controller?.qtyPassed = quantityToPass
+            
+        }
     }
 
+    
     @IBAction func btnLogout(_ sender: UIBarButtonItem) {
         try! Auth.auth().signOut()
         if let storyboard = self.storyboard {
